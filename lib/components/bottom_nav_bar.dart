@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MyBottomNav extends StatelessWidget {
-  const MyBottomNav({super.key});
+  void Function(int)? onTabChange;
+  MyBottomNav({super.key, required this.onTabChange});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class MyBottomNav extends StatelessWidget {
         tabBackgroundColor: Colors.grey.shade100,
         tabBorderRadius: 16,
         mainAxisAlignment: MainAxisAlignment.center,
+        onTabChange: (value) => onTabChange!(value),
         tabs: [
         GButton(
           icon: Icons.home,
